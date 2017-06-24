@@ -1,12 +1,12 @@
 /**--------------File Info---------------------------------------------------------------------------------
-** File name:               led_display_cfg.h
-** Latest modified Date:    2017-6-24(¼ÓĞÅÏ¢)
+** File name:              library_manage.c
+** Latest modified Date:    2017-6-24(åŠ ä¿¡æ¯)
 ** Latest Version:          1.0
-** Descriptions:           Í¼Êé¹ÜÀíÏµÍ³
+** Descriptions:           å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ
 **
 **--------------------------------------------------------------------------------------------------------
-** Created by:              lizexin£¨GitHub  id: FirendSaber£©
-** Created date:             2016£¨´óÒ»ÏÂÑ§ÆÚ¹¤³ÌÊµ¼ù£©
+** Created by:             FirendSaber
+** Created date:             2016ï¼ˆå¤§ä¸€ä¸‹å­¦æœŸå·¥ç¨‹å®è·µï¼‰
 ** Version:                 1.0
 ** Descriptions:            The original version
 **
@@ -28,25 +28,25 @@
 
 
 
-//»áÔ±ĞÅÏ¢ 
+//ä¼šå‘˜ä¿¡æ¯ 
 typedef struct HUIYUAN
 {
-	char zhanghao[20];//ÕËºÅ 
-	char mima[12]; //ÃÜÂë 
-	char jyqingkuang[3];//½èÔÄÇé¿ö 
-	double  date_jine; //ÓâÆÚ½ğ¶î
+	char zhanghao[20];//è´¦å· 
+	char mima[12]; //å¯†ç  
+	char jyqingkuang[3];//å€Ÿé˜…æƒ…å†µ 
+	double  date_jine; //é€¾æœŸé‡‘é¢
 	int  jieyueshu;
 }HUIY_data;
 
-//Í¼ÊéĞÅÏ¢ 
+//å›¾ä¹¦ä¿¡æ¯ 
 typedef struct BOOK
 {	
-	char num[10];/*ÊéºÅ*/
-	char name[20];/*ÊéÃû*/
-	char author[12];/*×÷Õß*/		
-	char zhanghao1[20];//½èÔÄÕß
-	char zhuangtai[4];//½èÔÄÇé¿ö
-	double yuqimoney;//ÓâÆÚ½ğ¶î
+	char num[10];/*ä¹¦å·*/
+	char name[20];/*ä¹¦å*/
+	char author[12];/*ä½œè€…*/		
+	char zhanghao1[20];//å€Ÿé˜…è€…
+	char zhuangtai[4];//å€Ÿé˜…æƒ…å†µ
+	double yuqimoney;//é€¾æœŸé‡‘é¢
 
 	int  cishu;
 
@@ -66,15 +66,15 @@ void Huiyuan();
 void zhuce();
 void denglu();
 void chajian(char str[],int di);
-void show_menu();//ÏÔÊ¾Ö÷²Ëµ¥
-void Show_ALL();//ÏÔÊ¾ÎÄ±¾ÄÚÈİ£¬ÈôÎÄ¼şÎª¿Õ¼´Ìí¼Ó£¨Ä£¿é1£©
-Books_style *creat();//´´½¨Á´±í
-void input();//ÎªÎÄ¼şÎª¿ÕÊ±£¬ÏòÎÄ¼şÌí¼ÓÄÚÈİ£¨Ìí¼Ó´´½¨µÄÁ´±íÄÚÈİ£©
-void output();//´ÓÎÄ¼ş¶ÁÈ¡ÔÚÆÁÄ»ÏÔÊ¾ÎÄ¼şÄÚÈİ£¬¼´²éÑ¯
-void Turn_menu();//Ò³ÃæÌø×ªº¯Êı
-void Turn_menu1();//ÏÔÊ¾¹ÜÀíÔ±½çÃæ
-void Turn_menu2(char str[],int di);//µÇÂ¼¡¢×¢²á½çÃæ
-void Turn_menu3();//»áÔ±½çÃæ
+void show_menu();//æ˜¾ç¤ºä¸»èœå•
+void Show_ALL();//æ˜¾ç¤ºæ–‡æœ¬å†…å®¹ï¼Œè‹¥æ–‡ä»¶ä¸ºç©ºå³æ·»åŠ ï¼ˆæ¨¡å—1ï¼‰
+Books_style *creat();//åˆ›å»ºé“¾è¡¨
+void input();//ä¸ºæ–‡ä»¶ä¸ºç©ºæ—¶ï¼Œå‘æ–‡ä»¶æ·»åŠ å†…å®¹ï¼ˆæ·»åŠ åˆ›å»ºçš„é“¾è¡¨å†…å®¹ï¼‰
+void output();//ä»æ–‡ä»¶è¯»å–åœ¨å±å¹•æ˜¾ç¤ºæ–‡ä»¶å†…å®¹ï¼Œå³æŸ¥è¯¢
+void Turn_menu();//é¡µé¢è·³è½¬å‡½æ•°
+void Turn_menu1();//æ˜¾ç¤ºç®¡ç†å‘˜ç•Œé¢
+void Turn_menu2(char str[],int di);//ç™»å½•ã€æ³¨å†Œç•Œé¢
+void Turn_menu3();//ä¼šå‘˜ç•Œé¢
 void Add_Book();
 void Modofy_Book();
 void Query_Book();
@@ -108,7 +108,7 @@ int main()
 	
 	return 0;
 }
-//Ö÷²Ëµ¥
+//ä¸»èœå•
 void show_menu()
 {
 	int g,jishu=0;
@@ -117,17 +117,17 @@ void show_menu()
 	strcpy(huiyuan[0].mima,"123456");
 	system("cls");
 	printf("\n\n\t||=======================================||");
-	printf("\n\t||     1.ÒÔ¹ÜÀíÔ±µÄÉí·İ½øÈë              ||");
-	printf("\n\t||     2.ÒÔ»áÔ±µÄÉí·İ½øÈë                ||");
-	printf("\n\t||     3.ÍË³ö                            ||");
+	printf("\n\t||     1.ä»¥ç®¡ç†å‘˜çš„èº«ä»½è¿›å…¥              ||");
+	printf("\n\t||     2.ä»¥ä¼šå‘˜çš„èº«ä»½è¿›å…¥                ||");
+	printf("\n\t||     3.é€€å‡º                            ||");
 	printf("\n\t||=======================================||");
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-3£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-3ï¼‰:");
 	scanf("%d",&g);
 	
 	while(g>3||g<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-3):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-3):");
 		scanf("%d",&g);
 		
 	}
@@ -148,25 +148,25 @@ void guanliyuan()
 	int n;
 	system("cls");
 		printf("\n\n\t||==================================================||\n");
-		printf("\t||            »¶Ó­½øÈëöÎöÎÍ¼ÊéÎİ                    ||\n");
+		printf("\t||            æ¬¢è¿è¿›å…¥é‘«é‘«å›¾ä¹¦å±‹                    ||\n");
 		printf("\t||==================================================||\n");
-		printf("\t||		1-ÏÔÊ¾ËùÓĞ                          ||\n");
-		printf("\t||		2-Ìí¼ÓÍ¼Êé                          ||\n");
-		printf("\t||		3-ĞŞ¸ÄÍ¼Êé                          ||\n");
-		printf("\t||		4-É¾³ıÍ¼Êé                          ||\n");
-		printf("\t||		5-Êé¼®×´Ì¬                          ||\n");
-		printf("\t||		6-½èÔÄÇé¿ö                          ||\n");
-		printf("\t||		7-ÓâÆÚ·£¿î                          ||\n");
-		printf("\t||		8-»áÔ±Ãûµ¥                          ||\n");
-		printf("\t||		9-ĞŞ¸ÄÃÜÂë                          ||\n");
-		printf("\t||		10-ÍË³ö                             ||\n");
+		printf("\t||		1-æ˜¾ç¤ºæ‰€æœ‰                          ||\n");
+		printf("\t||		2-æ·»åŠ å›¾ä¹¦                          ||\n");
+		printf("\t||		3-ä¿®æ”¹å›¾ä¹¦                          ||\n");
+		printf("\t||		4-åˆ é™¤å›¾ä¹¦                          ||\n");
+		printf("\t||		5-ä¹¦ç±çŠ¶æ€                          ||\n");
+		printf("\t||		6-å€Ÿé˜…æƒ…å†µ                          ||\n");
+		printf("\t||		7-é€¾æœŸç½šæ¬¾                          ||\n");
+		printf("\t||		8-ä¼šå‘˜åå•                          ||\n");
+		printf("\t||		9-ä¿®æ”¹å¯†ç                           ||\n");
+		printf("\t||		10-é€€å‡º                             ||\n");
 		printf("\t||==================================================||\n");
-		printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-10£©:");
+		printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-10ï¼‰:");
 		scanf("%d",&n);
 		
 		while(n>10||n<1)
 		{	
-			printf("ÇëÖØĞÂÊäÈë(1-10):");
+			printf("è¯·é‡æ–°è¾“å…¥(1-10):");
 			scanf("%d",&n);
 		
 		}
@@ -175,34 +175,34 @@ void guanliyuan()
 		switch(n)
 		{
 			case 1:
-				Show_ALL();/*µ÷ÓÃÏÔÊ¾ËùÓĞÍ¼ÊéµÄ¹ı³Ì*/
+				Show_ALL();/*è°ƒç”¨æ˜¾ç¤ºæ‰€æœ‰å›¾ä¹¦çš„è¿‡ç¨‹*/
 				break;
 			case 2:
-				Add_Book();/*Ìí¼ÓÍ¼ÊéĞÅÏ¢*/
+				Add_Book();/*æ·»åŠ å›¾ä¹¦ä¿¡æ¯*/
 				break;
 			case 3:
-				Modofy_Book();/*ĞŞ¸ÄÍ¼ÊéĞÅÏ¢*/
+				Modofy_Book();/*ä¿®æ”¹å›¾ä¹¦ä¿¡æ¯*/
 				break;
 			case 4:
-				Delete_Book();/*É¾³ıÍ¼ÊéĞÅÏ¢*/
+				Delete_Book();/*åˆ é™¤å›¾ä¹¦ä¿¡æ¯*/
 				break;
 			case 5:
-				zhuangt_Book();/*Êé¼®×´Ì¬Í³¼Æ*/
+				zhuangt_Book();/*ä¹¦ç±çŠ¶æ€ç»Ÿè®¡*/
 				break;
 			case 6:
-				jyqkuang_Book();/*½èÔÄÇé¿öÅÅĞò10*/
+				jyqkuang_Book();/*å€Ÿé˜…æƒ…å†µæ’åº10*/
 				break;
 			case 7:
-				fondpaixu_Book();/*ÓâÆÚ·£¿îÅÅĞò5*/
+				fondpaixu_Book();/*é€¾æœŸç½šæ¬¾æ’åº5*/
 				break;
 			case 8:
-				huiyuan_list();/*»áÔ±Ãûµ¥*/
+				huiyuan_list();/*ä¼šå‘˜åå•*/
 				break;
 			case 9:
-				xiugaimima2();/*ĞŞ¸ÄÃÜÂë*/
+				xiugaimima2();/*ä¿®æ”¹å¯†ç */
 				break;
 			case 10:
-				Turn_menu();/*ÍË³ö*/
+				Turn_menu();/*é€€å‡º*/
 			default:break;
 		
 		}		
@@ -222,28 +222,28 @@ void Show_ALL()
 	fp=fopen("F:\\Booklist.txt","r");
 
 	printf("||===================================================||\n");
-	printf("||                ÏÔÊ¾Í¼ÊéĞÅÏ¢                       ||\n");
+	printf("||                æ˜¾ç¤ºå›¾ä¹¦ä¿¡æ¯                       ||\n");
 	printf("||===================================================||\n");
 	
 	if(fp==NULL)
 	{
-		printf("------------------Í¼ÊéÁĞ±íÄÚÈİÎª¿Õ£¡--------\n");
-		printf("------------------ÊÇ·ñÌí¼ÓÍ¼Êé£¿Y/N:");
+		printf("------------------å›¾ä¹¦åˆ—è¡¨å†…å®¹ä¸ºç©ºï¼--------\n");
+		printf("------------------æ˜¯å¦æ·»åŠ å›¾ä¹¦ï¼ŸY/N:");
 		
 		scanf("%c",&ch);
-		//»á×Ô¶¯Éú³É»»ĞĞ·û
+		//ä¼šè‡ªåŠ¨ç”Ÿæˆæ¢è¡Œç¬¦
 		scanf("%c",&ch);
 		while(ch!='Y'&&ch!='y'&&ch!='N'&&ch!='n')
 		{
 			
-				printf("\nÇëÖØĞÂÊäÈë£¨Y/N£©:");
+				printf("\nè¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰:");
 				scanf("%c",&ch);
 				scanf("%c",&ch);
 				
 		}
 				if(ch=='Y'||ch=='y')
 				{
-					printf("----------------¼´½«Ìí¼ÓÍ¼Êé---------------\n");
+					printf("----------------å³å°†æ·»åŠ å›¾ä¹¦---------------\n");
 					rep=creat();
 					input();
 				}
@@ -256,15 +256,15 @@ void Show_ALL()
 	}
 	if(fp!=NULL)
 	{
-		printf("\n-----------------Í¼ÊéÁĞ±íÈçÏÂ-----------------\n\n");
-		printf("ÊéºÅ\t\tÊéÃû\t\t\t×÷Õß\t\tÊé¼®×´Ì¬\t½èÔÄÕß\n");
-		output();	/*ÏÔÊ¾ÎÄ¼şÄÚÈİ*/
+		printf("\n-----------------å›¾ä¹¦åˆ—è¡¨å¦‚ä¸‹-----------------\n\n");
+		printf("ä¹¦å·\t\tä¹¦å\t\t\tä½œè€…\t\tä¹¦ç±çŠ¶æ€\tå€Ÿé˜…è€…\n");
+		output();	/*æ˜¾ç¤ºæ–‡ä»¶å†…å®¹*/
 		Turn_menu1();
 	}
 
 }
 
-// (1)   ´´½¨Á´±í
+// (1)   åˆ›å»ºé“¾è¡¨
 Books_style *creat()
 {
 	Books_style *head;
@@ -274,13 +274,13 @@ Books_style *creat()
 	head=NULL;
 
 	
-	printf("ÇëÊäÈëÒÔÏÂĞÅÏ¢ÒÔ¡°0 0 0¡±½áÊø\n");
-	printf("ÊéºÅ\tÊéÃû\t×÷Õß\n");
+	printf("è¯·è¾“å…¥ä»¥ä¸‹ä¿¡æ¯ä»¥â€œ0 0 0â€ç»“æŸ\n");
+	printf("ä¹¦å·\tä¹¦å\tä½œè€…\n");
 	
 
 	p1=p2=(Books_style *)malloc(LEN);
 	scanf("%s %s %s",p2->num,p2->name,p2->author);	
-	strcpy(p2->zhuangtai,"¿É½è ");
+	strcpy(p2->zhuangtai,"å¯å€Ÿ ");
 	strcpy(p2->zhanghao1,"        ");
 	
 	p2->cishu=0;
@@ -299,7 +299,7 @@ Books_style *creat()
 		p1=p2;
 		p2=(Books_style *)malloc(LEN);
 		scanf("%s %s %s",p2->num,p2->name,p2->author);
-		strcpy(p2->zhuangtai,"¿É½è");
+		strcpy(p2->zhuangtai,"å¯å€Ÿ");
 		strcpy(p2->zhanghao1," ");
 		
 		p2->cishu=0;
@@ -313,8 +313,8 @@ Books_style *creat()
 
 
 
-//  (2)    (½«Á´±íÄÚÈİĞ´ÈëÎÄ±¾)
-void input()/*·µ»ØÊäÈë¹İ²Ø×ÜÊı*/
+//  (2)    (å°†é“¾è¡¨å†…å®¹å†™å…¥æ–‡æœ¬)
+void input()/*è¿”å›è¾“å…¥é¦†è—æ€»æ•°*/
 {
 	FILE *fp;
 	Books_style *p1=rep;
@@ -322,7 +322,7 @@ void input()/*·µ»ØÊäÈë¹İ²Ø×ÜÊı*/
 
 	if((fp=fopen("F:\\Booklist.txt","w"))==NULL)
 	{
-		printf("´´½¨ÎÄ±¾Ê§°Ü£¡");
+		printf("åˆ›å»ºæ–‡æœ¬å¤±è´¥ï¼");
 		exit(0);
 	}
 		for(;p1->next!=NULL;p1=p1->next)
@@ -333,11 +333,11 @@ void input()/*·µ»ØÊäÈë¹İ²Ø×ÜÊı*/
 			
 			if(ferror(fp))
 			{
-				printf("µ÷ÓÃÊäÈëÊä³öº¯ÊıÓĞ´í£¡");
+				printf("è°ƒç”¨è¾“å…¥è¾“å‡ºå‡½æ•°æœ‰é”™ï¼");
 				exit(1);
 			}
 		}
-		//´ËÊ±p1µÄÊı¾İ»¹Î´ÊäÈë£¬¼´Á´±íµÄ×îºóÊı¾İ
+		//æ­¤æ—¶p1çš„æ•°æ®è¿˜æœªè¾“å…¥ï¼Œå³é“¾è¡¨çš„æœ€åæ•°æ®
 	
 		fprintf(fp,"%-8s\t%-20s\t%-12s\t%-4s\t%-10s\n",p1->num,p1->name,p1->author,p1->zhuangtai,p1->zhanghao1);
 		
@@ -348,7 +348,7 @@ void input()/*·µ»ØÊäÈë¹İ²Ø×ÜÊı*/
 }
 
 
-// (3)    ½«ÎÄ¼şÀïµÄÄÚÈİÏÔÊ¾µ½ÆÁÄ»ÉÏ   
+// (3)    å°†æ–‡ä»¶é‡Œçš„å†…å®¹æ˜¾ç¤ºåˆ°å±å¹•ä¸Š   
 void output()
 {
 		FILE *out;
@@ -356,7 +356,7 @@ void output()
 
 		if((out=fopen("F:\\Booklist.txt","r"))==NULL)
 		{
-			printf("´ò¿ªÎÄ±¾Ê§°Ü£¡");
+			printf("æ‰“å¼€æ–‡æœ¬å¤±è´¥ï¼");
 			Turn_menu1();
 		}
 		
@@ -370,18 +370,18 @@ void output()
 		fclose(out);
 }
 
-//  (4)    Ìø×ªÒ³ÃæÉèÖÃ,Ñ¯ÎÊÊÇ·ñÌøµ½Ö÷½çÃæ
+//  (4)    è·³è½¬é¡µé¢è®¾ç½®,è¯¢é—®æ˜¯å¦è·³åˆ°ä¸»ç•Œé¢
 void Turn_menu()
 {
 	char ch2;
 
-	printf("\n----------------ÊÇ·ñ·µ»ØÉÏÒ»¼¶?(Y/N) :");
+	printf("\n----------------æ˜¯å¦è¿”å›ä¸Šä¸€çº§?(Y/N) :");
 	scanf("%c",&ch2);
 	scanf("%c",&ch2);
 
 	while(ch2!='Y'&&ch2!='y'&&ch2!='N'&&ch2!='n')
 	{
-		printf("ÇëÖØĞÂÊäÈë£¨Y/N£©:");
+		printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰:");
 		scanf("%c",&ch2);
 		scanf("%c",&ch2);
 	}	
@@ -392,7 +392,7 @@ void Turn_menu()
 	}
 	if(ch2=='N'||ch2=='n')
 	{
-		printf("------------------ÍË³öÏµÍ³!---------------------\n");
+		printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 		exit(0);			
 	}
   	
@@ -402,14 +402,14 @@ void Turn_menu1()
 	char ch2;
 
 
-	printf("\n----------------ÊÇ·ñ·µ»ØÉÏÒ»¼¶?(Y/N) :");
+	printf("\n----------------æ˜¯å¦è¿”å›ä¸Šä¸€çº§?(Y/N) :");
 	scanf("%c",&ch2);
 	scanf("%c",&ch2);
 
 
 	while(ch2!='Y'&&ch2!='y'&&ch2!='N'&&ch2!='n')
 	{
-		printf("ÇëÖØĞÂÊäÈë£¨Y/N£©:");
+		printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰:");
 		scanf("%c",&ch2);
 		
 	}	
@@ -420,7 +420,7 @@ void Turn_menu1()
 	}
 	if(ch2=='N'||ch2=='n')
 	{
-		printf("------------------ÍË³öÏµÍ³!---------------------\n");
+		printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 		exit(0);			
 	}
   	
@@ -429,13 +429,13 @@ void Turn_menu2(char str[],int di)
 {
 	char ch2;
 
-	printf("\n----------------ÊÇ·ñ·µ»ØÉÏÒ»¼¶?(Y/N) :");
+	printf("\n----------------æ˜¯å¦è¿”å›ä¸Šä¸€çº§?(Y/N) :");
 	scanf("%c",&ch2);
 	scanf("%c",&ch2);
 
 	while(ch2!='Y'&&ch2!='y'&&ch2!='N'&&ch2!='n')
 	{
-		printf("ÇëÖØĞÂÊäÈë£¨Y/N£©:");
+		printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰:");
 		scanf("%c",&ch2);
 		scanf("%c",&ch2);
 	}	
@@ -446,7 +446,7 @@ void Turn_menu2(char str[],int di)
 	}
 	if(ch2=='N'||ch2=='n')
 	{
-		printf("------------------ÍË³öÏµÍ³!---------------------\n");
+		printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 		exit(0);			
 	}
   	
@@ -456,13 +456,13 @@ void Turn_menu3()
 {
 	char ch2;
 
-	printf("\n----------------ÊÇ·ñ·µ»ØÉÏÒ»¼¶?(Y/N) :");
+	printf("\n----------------æ˜¯å¦è¿”å›ä¸Šä¸€çº§?(Y/N) :");
 	scanf("%c",&ch2);
 	scanf("%c",&ch2);
 
 	while(ch2!='Y'&&ch2!='y'&&ch2!='N'&&ch2!='n')
 	{
-		printf("ÇëÖØĞÂÊäÈë£¨Y/N£©:");
+		printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰:");
 		scanf("%c",&ch2);
 		scanf("%c",&ch2);
 	}	
@@ -473,7 +473,7 @@ void Turn_menu3()
 	}
 	if(ch2=='N'||ch2=='n')
 	{
-		printf("------------------ÍË³öÏµÍ³!---------------------\n");
+		printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 		exit(0);			
 	}
   	
@@ -482,7 +482,7 @@ void Turn_menu3()
 //***********************************************************************************************************************************************************//
 
 
-//Ìí¼ÓÍ¼Êé
+//æ·»åŠ å›¾ä¹¦
 void Add_Book()
 {
 	Books_style *p=rep;
@@ -490,13 +490,13 @@ void Add_Book()
 	Books_style *t=rep;
 
 	printf("||===================================================||\n");
-	printf("||                Ìí¼ÓÍ¼ÊéĞÅÏ¢                       ||\n");
+	printf("||                æ·»åŠ å›¾ä¹¦ä¿¡æ¯                       ||\n");
 	printf("||===================================================||\n");
 
-	printf("----------ÇëÊäÈëÒªÏòÎÄ±¾Ìí¼ÓµÄÄÚÈİ-----------------\n");
+	printf("----------è¯·è¾“å…¥è¦å‘æ–‡æœ¬æ·»åŠ çš„å†…å®¹-----------------\n");
 	B=creat();
 
-	if (rep==NULL)//AÁ´±íÎª¿ÕµÄÇé¿ö£¬°Ñbhead¸³¸øahead,Ê¹ÆğÊ¼µØÖ·ÒÀÈ»Îªahead(¼´bhead)£»
+	if (rep==NULL)//Aé“¾è¡¨ä¸ºç©ºçš„æƒ…å†µï¼ŒæŠŠbheadèµ‹ç»™ahead,ä½¿èµ·å§‹åœ°å€ä¾ç„¶ä¸ºahead(å³bhead)ï¼›
 	{
 		rep=B;
 	}
@@ -507,18 +507,18 @@ void Add_Book()
 			p = p->next;
 		}
 		
-		p->next = B;//B½ÓÉÏA
+		p->next = B;//Bæ¥ä¸ŠA
 	}
 
 	input();
-	printf("\n-------------Ìí¼Óµ½ÎÄ¼ş³É¹¦!-----------------------\n");
-	printf("\n  ÎÂÜ°ÌáÊ¾:Èô·µ»ØÉÏ¼¶£¨ÇÒ°´1£©¿É²é¿´È«ÎÄºÍ¸ÕÌí¼ÓµÄÄÚÈİ------------\n");
+	printf("\n-------------æ·»åŠ åˆ°æ–‡ä»¶æˆåŠŸ!-----------------------\n");
+	printf("\n  æ¸©é¦¨æç¤º:è‹¥è¿”å›ä¸Šçº§ï¼ˆä¸”æŒ‰1ï¼‰å¯æŸ¥çœ‹å…¨æ–‡å’Œåˆšæ·»åŠ çš„å†…å®¹------------\n");
 	
 } 
 
 //***********************************************************************************************************************************************************//
 
-//ĞŞ¸ÄÍ¼Êé 
+//ä¿®æ”¹å›¾ä¹¦ 
 void Modofy_Book()
 {
 	
@@ -534,32 +534,32 @@ void Modofy_Book()
 
 	
 	printf("||===================================================||\n");
-	printf("||                ĞŞ¸ÄÍ¼ÊéĞÅÏ¢                       ||\n");
+	printf("||                ä¿®æ”¹å›¾ä¹¦ä¿¡æ¯                       ||\n");
 	printf("||===================================================||\n");
 
-	printf("\n   ----------Ô­Í¼ÊéĞÅÏ¢ÈçÏÂ------------\n");
+	printf("\n   ----------åŸå›¾ä¹¦ä¿¡æ¯å¦‚ä¸‹------------\n");
 	output();
 
 	printf("||==========================================||\n");
 	printf("  ||                                          ||\n");
-	printf("  || 1¡¢°´ÊéºÅĞŞ¸Ä                            ||\n");
-	printf("  || 2¡¢°´ÊéÃûĞŞ¸Ä                            ||\n");
+	printf("  || 1ã€æŒ‰ä¹¦å·ä¿®æ”¹                            ||\n");
+	printf("  || 2ã€æŒ‰ä¹¦åä¿®æ”¹                            ||\n");
 	printf("  ||                                          ||\n");
 	printf("  ||==========================================||\n");
 
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-2£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-2ï¼‰:");
 	scanf("%d",&n);
 	while(n>2||n<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-2):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-2):");
 		scanf("%d",&n);
 	
 	}
 	
 	if(n==1)
 	{
-		printf("ÇëÊäÈëÄãÏëÒªĞŞ¸ÄÍ¼ÊéµÄÊéºÅ£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦ä¿®æ”¹å›¾ä¹¦çš„ä¹¦å·ï¼š");
 		scanf("%s",Mod_data.num);
 			
 		while (p != NULL)
@@ -567,14 +567,14 @@ void Modofy_Book()
 			if(strcmp(Mod_data.num,p->num)==0)
 			{
 				flag=1;
-				printf("ÇëÊäÈëÕâ±¾ÊéĞŞ¸Ä¹ıºóµÄÄÚÈİ:\n");
-				printf("ÊéºÅ£º\n");
+				printf("è¯·è¾“å…¥è¿™æœ¬ä¹¦ä¿®æ”¹è¿‡åçš„å†…å®¹:\n");
+				printf("ä¹¦å·ï¼š\n");
 				scanf("%s",num1);
 				strcpy(p->num,num1);
-				printf("ÊéÃû£º\n");
+				printf("ä¹¦åï¼š\n");
 				scanf("%s",name1);
 				strcpy(p->name,name1);
-				printf("×÷Õß£º\n");
+				printf("ä½œè€…ï¼š\n");
 				scanf("%s",author1);
 				strcpy(p->author,author1);
 			}
@@ -584,7 +584,7 @@ void Modofy_Book()
 	p=rep;
 	if(n==2)
 	{
-		printf("ÇëÊäÈëÄãÏëÒªĞŞ¸ÄÍ¼ÊéµÄÊéÃû£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦ä¿®æ”¹å›¾ä¹¦çš„ä¹¦åï¼š");
 		scanf("%s",Mod_data.name);
 
 		while (p != NULL)
@@ -594,14 +594,14 @@ void Modofy_Book()
 			{
 				
 				flag=1;
-				printf("ÇëÊäÈëÕâ±¾ÊéĞŞ¸Ä¹ıºóµÄÄÚÈİ:\n");
-				printf("ÊéºÅ£º\n");
+				printf("è¯·è¾“å…¥è¿™æœ¬ä¹¦ä¿®æ”¹è¿‡åçš„å†…å®¹:\n");
+				printf("ä¹¦å·ï¼š\n");
 				scanf("%s",num1);
 				strcpy(p->num,num1);
-				printf("ÊéÃû£º\n");
+				printf("ä¹¦åï¼š\n");
 				scanf("%s",name1);
 				strcpy(p->name,name1);
-				printf("×÷Õß£º\n");
+				printf("ä½œè€…ï¼š\n");
 				scanf("%s",author1);
 				strcpy(p->author,author1);
 			}
@@ -612,11 +612,11 @@ void Modofy_Book()
 	}
 		if(flag==0)
 		{
-			printf("Ã»ÓĞÕÒµ½£¡");
+			printf("æ²¡æœ‰æ‰¾åˆ°ï¼");
 		}
 		else
 		{
-			printf("ĞŞ¸ÄºóµÄ½á¹ûÈçÏÂ£º\n");
+			printf("ä¿®æ”¹åçš„ç»“æœå¦‚ä¸‹ï¼š\n");
 			input();
 			output();
 		}
@@ -625,7 +625,7 @@ void Modofy_Book()
 
 
 //***********************************************************************************************************************************************************//
-//É¾³ıÍ¼Êé
+//åˆ é™¤å›¾ä¹¦
 void Delete_Book()
 {
 	int n;
@@ -634,29 +634,29 @@ void Delete_Book()
 	Books_style  *p=rep;
 	Books_style  *p1;
 
-	printf("\n   ----------Ô­Í¼ÊéĞÅÏ¢ÈçÏÂ------------\n");
+	printf("\n   ----------åŸå›¾ä¹¦ä¿¡æ¯å¦‚ä¸‹------------\n");
 	output();
 
 	printf("||==========================================||\n");
 	printf("  ||                                          ||\n");
-	printf("  || 1¡¢°´ÊéºÅÉ¾³ı                            ||\n");
-	printf("  || 2¡¢°´ÊéÃûÉ¾³ı                            ||\n");
+	printf("  || 1ã€æŒ‰ä¹¦å·åˆ é™¤                            ||\n");
+	printf("  || 2ã€æŒ‰ä¹¦ååˆ é™¤                            ||\n");
 	printf("  ||                                          ||\n");
 	printf("  ||==========================================||\n");
 
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-2£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-2ï¼‰:");
 	scanf("%d",&n);
 	while(n>2||n<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-2):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-2):");
 		scanf("%d",&n);
 	
 	}
 
 	if(n==1)
 	{
-		printf("ÇëÊäÈëÄãÏëÒªÉ¾³ıµÄÍ¼ÊéµÄÊéºÅ£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦åˆ é™¤çš„å›¾ä¹¦çš„ä¹¦å·ï¼š");
 		scanf("%s",num2);
 			
 		if(strcmp(num2,rep->num)==0)
@@ -678,7 +678,7 @@ void Delete_Book()
 	p=rep;
 	if(n==2)
 	{
-		printf("ÇëÊäÈëÄãÏëÒªÉ¾³ıµÄÍ¼ÊéµÄÊéÃû£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦åˆ é™¤çš„å›¾ä¹¦çš„ä¹¦åï¼š");
 		scanf("%s",name2);
 		
 		if(strcmp(name2,p->name)==0)
@@ -700,40 +700,40 @@ void Delete_Book()
 	
 	if(flag==0)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡");	
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼");	
 	}	
 	else
 		{
-			printf("ĞŞ¸ÄºóµÄ½á¹ûÈçÏÂ£º\n");
+			printf("ä¿®æ”¹åçš„ç»“æœå¦‚ä¸‹ï¼š\n");
 			input();
 			output();
 		}
 }
 
-//»áÔ±Çåµ¥
+//ä¼šå‘˜æ¸…å•
 void huiyuan_list()
 {
 	int te;
 	
-	printf("\n¹²ÓĞ%dÎ»»áÔ±\n",r);
-	printf("»áÔ±Ãû:root\t\tÃÜÂë:123456\n");
+	printf("\nå…±æœ‰%dä½ä¼šå‘˜\n",r);
+	printf("ä¼šå‘˜å:root\t\tå¯†ç :123456\n");
 	for(te=1;te<r;te++)
 	{
-		printf("»áÔ±Ãû:%s\t\tÃÜÂë:%s\n",huiyuan[te].zhanghao,huiyuan[te].mima);
+		printf("ä¼šå‘˜å:%s\t\tå¯†ç :%s\n",huiyuan[te].zhanghao,huiyuan[te].mima);
 	}
 
 }
 
-//×´Ì¬Çé¿ö
+//çŠ¶æ€æƒ…å†µ
 void zhuangt_Book()
 {
 
-	printf("\n\n\t¹İ²ØÊé¼®×ÜÊı(±¾)\tÒÑ½è³ö×ÜÊı(±¾)\tÔÚ¹İÊé¼®Êı(±¾)\n");
+	printf("\n\n\té¦†è—ä¹¦ç±æ€»æ•°(æœ¬)\tå·²å€Ÿå‡ºæ€»æ•°(æœ¬)\tåœ¨é¦†ä¹¦ç±æ•°(æœ¬)\n");
 	printf("\t%d\t%d\t%d",shu,shu1,shu-shu1);
 
 }
 
-//½èÔÄÇé¿öÅÅĞò
+//å€Ÿé˜…æƒ…å†µæ’åº
 void jyqkuang_Book()
 {
 	Books_style  *p=rep;
@@ -744,10 +744,10 @@ void jyqkuang_Book()
 	while(p!=NULL)
 	{
 
-		strcpy(paixu[ci].num,p->num);/*ÊéºÅ*/
-		strcpy(paixu[ci].name,p->name);/*ÊéÃû*/
-		strcpy(paixu[ci].author,p->author);/*×÷Õß*/		
-		strcpy(paixu[ci].zhuangtai,p->zhuangtai); //½èÔÄÇé¿ö 
+		strcpy(paixu[ci].num,p->num);/*ä¹¦å·*/
+		strcpy(paixu[ci].name,p->name);/*ä¹¦å*/
+		strcpy(paixu[ci].author,p->author);/*ä½œè€…*/		
+		strcpy(paixu[ci].zhuangtai,p->zhuangtai); //å€Ÿé˜…æƒ…å†µ 
 		paixu[ci].cishu=p->cishu;
 		p=p->next;
 		ci++;
@@ -765,8 +765,8 @@ void jyqkuang_Book()
 		strcpy(string,paixu[su].author);strcpy(paixu[su].author,paixu[ku].author);strcpy(paixu[ku].author,string);}	
 	}
 
-	printf("\n------------------½èÔÄÇé¿öÅÅĞĞ°ñ------------------\n");
-	printf("\tÊéºÅ\t\tÊéÃû\t\t\t×÷Õß\t\t±»½èÔÄ´ÎÊı\n");
+	printf("\n------------------å€Ÿé˜…æƒ…å†µæ’è¡Œæ¦œ------------------\n");
+	printf("\tä¹¦å·\t\tä¹¦å\t\t\tä½œè€…\t\tè¢«å€Ÿé˜…æ¬¡æ•°\n");
 	for(su=0;su<ci;su++)
 	{
 		if(kawei>=10)
@@ -779,14 +779,14 @@ void jyqkuang_Book()
 
 }
 
-//ÓâÆÚ½ğ¶îÅÅĞò
+//é€¾æœŸé‡‘é¢æ’åº
 void fondpaixu_Book()
 {
 	int su,ku,tu;
 	double t;
 	int kawei=0;
 	char string[20];
-	printf("\n\t------------------ÓâÆÚ½ğ¶îÅÅĞĞ°ñ----------------------\n");
+	printf("\n\t------------------é€¾æœŸé‡‘é¢æ’è¡Œæ¦œ----------------------\n");
 	for(su=0;su<r-1;su++)
 	{   ku=su;
 		for(tu=su+1;tu<r;tu++)
@@ -797,7 +797,7 @@ void fondpaixu_Book()
 		strcpy(string,huiyuan[su].zhanghao);strcpy(huiyuan[su].zhanghao,huiyuan[ku].zhanghao);strcpy(huiyuan[ku].zhanghao,string);
 		}	
 	}
-	printf("\n\t½èÔÄÕß\t\tÓâÆÚ½ğ¶î\n");
+	printf("\n\tå€Ÿé˜…è€…\t\té€¾æœŸé‡‘é¢\n");
 	for(su=0;su<r;su++)
 	{
 		if(kawei>=5)
@@ -811,7 +811,7 @@ void fondpaixu_Book()
 }
 
 
-//ĞŞ¸ÄÕËºÅÃÜÂë
+//ä¿®æ”¹è´¦å·å¯†ç 
 void xiugaimima2()
 {
 
@@ -820,36 +820,36 @@ void xiugaimima2()
 	int keep=0;
 	int flag=1;
 
-	printf("ÕËºÅ:");
+	printf("è´¦å·:");
 	scanf("%s",zhanghao1);
 	for(i=0;i<r;i++)
 	{
 		if(strcmp(zhanghao1,huiyuan[i].zhanghao)==0)
 		{		
 			flag=0	;	
-			printf("ĞÂÃÜÂë£º");
+			printf("æ–°å¯†ç ï¼š");
 			scanf("%s",huiyuan[i].mima);
-			printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+			printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 			scanf("%s",mima2);
 			while(strcmp(mima2,huiyuan[i].mima)!=0)
 			{
 				keep++;
-				printf("\nÁ½´ÎÃÜÂë²»Ò»Ñù!\n");
-				printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+				printf("\nä¸¤æ¬¡å¯†ç ä¸ä¸€æ ·!\n");
+				printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 				scanf("%s",mima2);
 				if(keep>3)
 				{
-					printf("ÒÑÈı´ÎÊäÈë´íÎó£¡×Ô¶¯ÍË³ö");
+					printf("å·²ä¸‰æ¬¡è¾“å…¥é”™è¯¯ï¼è‡ªåŠ¨é€€å‡º");
 					Turn_menu3();
 				}
 			}
-			printf("\n\n--------------ĞŞ¸Ä³É¹¦£¡--------------------\n\n");
+			printf("\n\n--------------ä¿®æ”¹æˆåŠŸï¼--------------------\n\n");
 		}
 	
 	}
 	if(flag==1)
 	{
-		printf("Ã»ÓĞ¸ÃÕËºÅ£¡");
+		printf("æ²¡æœ‰è¯¥è´¦å·ï¼");
 	}
 			
 }
@@ -858,36 +858,36 @@ void xiugaimima2()
 
 //***********************************************************************************************************************************************************//
 //***********************************************************************************************************************************************************//
-//»áÔ±ĞÅÏ¢
+//ä¼šå‘˜ä¿¡æ¯
 void Huiyuan()
 {
 	int gt;
 	
 	
 	system("cls");
-		printf("\n\n\t--------------»¶Ó­½øÈëµÇÂ¼Ò³Ãæ---------------\n\n");
+		printf("\n\n\t--------------æ¬¢è¿è¿›å…¥ç™»å½•é¡µé¢---------------\n\n");
 		printf("\n\t||=======================================||");
-		printf("\n\t||     1.µÇÂ¼                            ||");
-		printf("\n\t||     2.×¢²á                            ||");
-		printf("\n\t||     3.ÍË³ö                            ||");
+		printf("\n\t||     1.ç™»å½•                            ||");
+		printf("\n\t||     2.æ³¨å†Œ                            ||");
+		printf("\n\t||     3.é€€å‡º                            ||");
 		printf("\n\t||=======================================||");
-		printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-3£©:");
+		printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-3ï¼‰:");
 			scanf("%d",&gt);
 			while(gt>3||gt<1)
 			{	
-				printf("ÇëÖØĞÂÊäÈë(1-3):");
+				printf("è¯·é‡æ–°è¾“å…¥(1-3):");
 				scanf("%d",&gt);
 			}
 			switch(gt)
 			{
 				case 1:
-					denglu();/*µÇÂ¼*/
+					denglu();/*ç™»å½•*/
 					break;
 				case 2:
-					zhuce();/*×¢²á*/
+					zhuce();/*æ³¨å†Œ*/
 					break;
 				case 3:
-					Turn_menu();/*ÍË³ö*/	
+					Turn_menu();/*é€€å‡º*/	
 			}
 		
 		Turn_menu3();
@@ -908,23 +908,23 @@ void denglu()
 		printf("\t%s",huiyuan[i].mima);
 		printf("\n");
 	}
-	printf("ÕËºÅ:");
+	printf("è´¦å·:");
 	scanf("%s",zhanghao1);
 	for(i=0;i<r;i++)
 	{
 		if(strcmp(zhanghao1,huiyuan[i].zhanghao)==0)
 		{	flag=0;
-			printf("ÃÜÂë:");
+			printf("å¯†ç :");
 			scanf("%s",mima1);
 
 			while(strcmp(mima1,huiyuan[i].mima)!=0)
 			{
-				printf("ÇëÖØĞÂÊäÈëÃÜÂë£º\n");
+				printf("è¯·é‡æ–°è¾“å…¥å¯†ç ï¼š\n");
 				scanf("%s",mima1);
 				jishu++;
 				if(jishu==3)
 				{
-					printf("\n\n----------------ÃÜÂëÈı´ÎÊäÈë´íÎó!----------------------\n");
+					printf("\n\n----------------å¯†ç ä¸‰æ¬¡è¾“å…¥é”™è¯¯!----------------------\n");
 					Turn_menu();
 				}
 			}		
@@ -934,7 +934,7 @@ void denglu()
 	i--;
 	if(flag==1)
 	{
-		printf("Ã»ÓĞ¸ÃÕËºÅ£¡");
+		printf("æ²¡æœ‰è¯¥è´¦å·ï¼");
 	}
 	else
 		chajian(zhanghao1,i);
@@ -945,46 +945,46 @@ void chajian(char str[],int di)
 	int n;
 	system("cls");
 			printf("\n\n\t||==================================================||\n");
-			printf("\t||            »¶Ó­½øÈëöÎöÎÍ¼ÊéÎİ                    ||\n");
+			printf("\t||            æ¬¢è¿è¿›å…¥é‘«é‘«å›¾ä¹¦å±‹                    ||\n");
 			printf("\t||==================================================||\n");
-			printf("\t||		1-ÏÔÊ¾ËùÓĞ                          ||\n");
-			printf("\t||		2-²éÑ¯Í¼Êé                          ||\n");
-			printf("\t||		3-½èÔÄÍ¼Êé                          ||\n");
-			printf("\t||		4-¹é»¹Í¼Êé                          ||\n");
-			printf("\t||		5-½èÔÄÇé¿ö                          ||\n");
-			printf("\t||		6-ĞŞ¸ÄÃÜÂë                          ||\n");
-			printf("\t||		7-ÍË³ö                              ||\n");
+			printf("\t||		1-æ˜¾ç¤ºæ‰€æœ‰                          ||\n");
+			printf("\t||		2-æŸ¥è¯¢å›¾ä¹¦                          ||\n");
+			printf("\t||		3-å€Ÿé˜…å›¾ä¹¦                          ||\n");
+			printf("\t||		4-å½’è¿˜å›¾ä¹¦                          ||\n");
+			printf("\t||		5-å€Ÿé˜…æƒ…å†µ                          ||\n");
+			printf("\t||		6-ä¿®æ”¹å¯†ç                           ||\n");
+			printf("\t||		7-é€€å‡º                              ||\n");
 			printf("\t||==================================================||\n");
-			printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-7£©:");
+			printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-7ï¼‰:");
 			scanf("%d",&n);
 			while(n>7||n<1)
 			{	
-				printf("ÇëÖØĞÂÊäÈë(1-7):");
+				printf("è¯·é‡æ–°è¾“å…¥(1-7):");
 				scanf("%d",&n);
 			}
 			printf("\n%d\n",di);
 			switch(n)
 			{
 				case 1:
-					xianshi();/*µ÷ÓÃÏÔÊ¾ËùÓĞÍ¼ÊéµÄ¹ı³Ì*/
+					xianshi();/*è°ƒç”¨æ˜¾ç¤ºæ‰€æœ‰å›¾ä¹¦çš„è¿‡ç¨‹*/
 					break;
 				case 2:
-					Query_Book();/*²éÑ¯Í¼ÊéĞÅÏ¢*/
+					Query_Book();/*æŸ¥è¯¢å›¾ä¹¦ä¿¡æ¯*/
 					break;
 				case 3:
-					lent_book(str,di);input();/*½èÔÄÍ¼Êé*/
+					lent_book(str,di);input();/*å€Ÿé˜…å›¾ä¹¦*/
 					break;
 			    case 4:
-					back_Book(str,di);input();/*¹é»¹Í¼Êé*/
+					back_Book(str,di);input();/*å½’è¿˜å›¾ä¹¦*/
 					break;
 		   	    case 5:
-					jieyue_Book(str,di);/*½èÔÄÇé¿ö*/
+					jieyue_Book(str,di);/*å€Ÿé˜…æƒ…å†µ*/
 					break;
 				case 6:	
-					xiugaimima(di);/*ĞŞ¸ÄÃÜÂë*/
+					xiugaimima(di);/*ä¿®æ”¹å¯†ç */
 					break;
 				case 7:
-					Turn_menu3();/*ÍË³ö*/
+					Turn_menu3();/*é€€å‡º*/
 				default:break;		
 			}
 						
@@ -999,45 +999,45 @@ void zhuce()
 	int keep=0,zh=0,ko=0;
 
 			printf("%d",r);
-			printf("\n--------------»¶Ó­½øÈë×¢²áÒ³Ãæ£¡--------------\n");
-			printf("×¢²áÕËºÅ£º");	
+			printf("\n--------------æ¬¢è¿è¿›å…¥æ³¨å†Œé¡µé¢ï¼--------------\n");
+			printf("æ³¨å†Œè´¦å·ï¼š");	
 			scanf("%s",huiyuan[r].zhanghao);
 
 			for(zh=0;zh<r;zh++)
 			{
 				if(strcmp(huiyuan[r].zhanghao,huiyuan[zh].zhanghao)==0)
 				{
-					printf("\n-----------------´ËÕËºÅÒÑ±»×¢²á£¡£¡£¡----------------\n");
-					printf("ÇëÖØĞÂÊäÈë£º");
-					printf("×¢²áÕËºÅ£º");	
+					printf("\n-----------------æ­¤è´¦å·å·²è¢«æ³¨å†Œï¼ï¼ï¼----------------\n");
+					printf("è¯·é‡æ–°è¾“å…¥ï¼š");
+					printf("æ³¨å†Œè´¦å·ï¼š");	
 					scanf("%s",huiyuan[r].zhanghao);
 					zh=-1;
 				}
 			}
 
-			printf("ÃÜÂë£º");
+			printf("å¯†ç ï¼š");
 			scanf("%s",huiyuan[r].mima);
-			printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+			printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 			scanf("%s",mima2);
 			while(strcmp(mima2,huiyuan[r].mima)!=0)
 			{
 				keep++;
-				printf("\nÁ½´ÎÃÜÂë²»Ò»Ñù!\n");
-				printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+				printf("\nä¸¤æ¬¡å¯†ç ä¸ä¸€æ ·!\n");
+				printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 				scanf("%s",mima2);
 				if(keep>3)
 				{
-					printf("ÒÑÈı´ÎÊäÈë´íÎó£¡×Ô¶¯ÍË³ö");
+					printf("å·²ä¸‰æ¬¡è¾“å…¥é”™è¯¯ï¼è‡ªåŠ¨é€€å‡º");
 					Turn_menu3();
 				}
 			}
-			printf("\n\n--------------×¢²á³É¹¦£¡--------------------\n\n");
+			printf("\n\n--------------æ³¨å†ŒæˆåŠŸï¼--------------------\n\n");
 			r++;
 			printf("%d",r);
 			
 }
 
-//²éÑ¯Í¼Êé
+//æŸ¥è¯¢å›¾ä¹¦
 void Query_Book()
 {
 	int n;
@@ -1049,24 +1049,24 @@ void Query_Book()
 
 	printf("\n\n\t||==========================================||\n");
 	printf("\t||                                          ||\n");
-	printf("\t|| 1¡¢°´ÊéºÅ²éÑ¯                            ||\n");
-	printf("\t|| 2¡¢°´ÊéÃû²éÑ¯                            ||\n");
+	printf("\t|| 1ã€æŒ‰ä¹¦å·æŸ¥è¯¢                            ||\n");
+	printf("\t|| 2ã€æŒ‰ä¹¦åæŸ¥è¯¢                            ||\n");
 	printf("\t||                                          ||\n");
 	printf("\t||==========================================||\n");
 
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-2£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-2ï¼‰:");
 	scanf("%d",&n);
 	while(n>2||n<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-2):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-2):");
 		scanf("%d",&n);
 	
 	}
 	
 	if(n==1)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª²éÑ¯µÄÍ¼ÊéµÄÊéºÅ£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦æŸ¥è¯¢çš„å›¾ä¹¦çš„ä¹¦å·ï¼š");
 		scanf("%s",num2);
 			
 		while (p != NULL)
@@ -1074,8 +1074,8 @@ void Query_Book()
 			if(strcmp(num2,p->num)==0)
 			{
 				flag=1;
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",p->num,p->name,p->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",p->zhuangtai);
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",p->num,p->name,p->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",p->zhuangtai);
 			}
 			p = p->next;
 		}	
@@ -1083,7 +1083,7 @@ void Query_Book()
 	p=rep;
 	if(n==2)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª²éÑ¯µÄÍ¼ÊéµÄÊéÃû£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦æŸ¥è¯¢çš„å›¾ä¹¦çš„ä¹¦åï¼š");
 		scanf("%s",name2);
 
 		while (p != NULL)
@@ -1091,8 +1091,8 @@ void Query_Book()
 			if(strcmp(name2,p->name)==0)
 			{
 				flag=1;
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",p->num,p->name,p->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",p->zhuangtai);
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",p->num,p->name,p->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",p->zhuangtai);
 			}
 			p = p->next;
 		}
@@ -1101,13 +1101,13 @@ void Query_Book()
 	p=rep;
 	if(flag==0)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡");	
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼");	
 	}	
 	
 }
 
 
-//½èÔÄÍ¼Êé
+//å€Ÿé˜…å›¾ä¹¦
 void lent_book(char str[],int di)
 {
 	int n;
@@ -1116,21 +1116,21 @@ void lent_book(char str[],int di)
 	char num2[10],name2[20];
 	Books_style  *p=rep;
 
-	printf("\n\t----------Ô­Í¼ÊéĞÅÏ¢ÈçÏÂ------------\n");
+	printf("\n\t----------åŸå›¾ä¹¦ä¿¡æ¯å¦‚ä¸‹------------\n");
 	xianshi();
 	printf("\n\n\t||==========================================||\n");
 	printf("\t||                                          ||\n");
-	printf("\t|| 1¡¢°´ÊéºÅ½èÔÄ                            ||\n");
-	printf("\t|| 2¡¢°´ÊéÃû½èÔÄ                            ||\n");
+	printf("\t|| 1ã€æŒ‰ä¹¦å·å€Ÿé˜…                            ||\n");
+	printf("\t|| 2ã€æŒ‰ä¹¦åå€Ÿé˜…                            ||\n");
 	printf("\t||                                          ||\n");
 	printf("\t||==========================================||\n");
 
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-2£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-2ï¼‰:");
 	scanf("%d",&n);
 	while(n>2||n<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-2):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-2):");
 		scanf("%d",&n);
 		
 	
@@ -1138,7 +1138,7 @@ void lent_book(char str[],int di)
 	
 	if(n==1)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª½èÔÄµÄÍ¼ÊéµÄÊéºÅ£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦å€Ÿé˜…çš„å›¾ä¹¦çš„ä¹¦å·ï¼š");
 		scanf("%s",num2);
 			
 		while (rep != NULL)
@@ -1146,38 +1146,38 @@ void lent_book(char str[],int di)
 			if(strcmp(num2,rep->num)==0)
 			{
 				flag=1;
-				printf("\n¸ÃÊéµÄÍ¼ÊéĞÅÏ¢£º\n");
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",rep->num,rep->name,rep->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",rep->zhuangtai);
-				if(strcmp(rep->zhuangtai,"ÒÑ½è³ö")==0)
+				printf("\nè¯¥ä¹¦çš„å›¾ä¹¦ä¿¡æ¯ï¼š\n");
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",rep->num,rep->name,rep->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",rep->zhuangtai);
+				if(strcmp(rep->zhuangtai,"å·²å€Ÿå‡º")==0)
 				{
 					
-					printf("\n-------------------¸ÃÊéÒÑ±»½è³ö£¡----------------------\n");
+					printf("\n-------------------è¯¥ä¹¦å·²è¢«å€Ÿå‡ºï¼----------------------\n");
 					Turn_menu2(str,di);
 				}
-				printf("ÇëÈ·ÈÏÊÇ·ñ½èÔÄ´ËÊé(Y/N):");
+				printf("è¯·ç¡®è®¤æ˜¯å¦å€Ÿé˜…æ­¤ä¹¦(Y/N):");
 				scanf("%c",&ch);
 				scanf("%c",&ch);
 				while(ch!='Y'&&ch!='y'&&ch!='N'&&ch!='n')
 				{
-					printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+					printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 					scanf("%c",&ch);
 				
 				}	
 
 				if(ch=='Y'||ch=='y')
 				{
-					strcpy(rep->zhuangtai,"ÒÑ½è³ö");
+					strcpy(rep->zhuangtai,"å·²å€Ÿå‡º");
 					shu1++;
 					rep->cishu++;
 					strcpy(rep->zhanghao1,str);
 					jilutime(di);
-					printf("------------------½èÔÄ³É¹¦!---------------------\n");
+					printf("------------------å€Ÿé˜…æˆåŠŸ!---------------------\n");
 					break;
 				}
 				if(ch=='N'||ch=='n')
 				{
-					printf("------------------ÍË³öÏµÍ³!---------------------\n");			
+					printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");			
 				}
 				
 			}
@@ -1187,7 +1187,7 @@ void lent_book(char str[],int di)
 	rep=p;
 	if(n==2)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª½èÔÄµÄÍ¼ÊéµÄÊéÃû£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦å€Ÿé˜…çš„å›¾ä¹¦çš„ä¹¦åï¼š");
 		scanf("%s",name2);
 
 		while (rep != NULL)
@@ -1195,46 +1195,46 @@ void lent_book(char str[],int di)
 			if(strcmp(name2,rep->name)==0)
 			{
 				flag=1;
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",rep->num,rep->name,rep->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",rep->zhuangtai);
-				printf("ÇëÈ·ÈÏÊÇ²»ÊÇ´ËÊé£¡£¨Y/N£©:");
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",rep->num,rep->name,rep->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",rep->zhuangtai);
+				printf("è¯·ç¡®è®¤æ˜¯ä¸æ˜¯æ­¤ä¹¦ï¼ï¼ˆY/Nï¼‰:");
 				scanf("%c",&gt);
 				scanf("%c",&gt);
 				while(gt!='Y'&&gt!='y'&&gt!='N'&&gt!='n')
 				{
-					printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+					printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 					scanf("%c",&gt);
 					scanf("%c",&gt);
 				}	
 				if((gt=='Y'||gt=='y'))
 				{
-					if(strcmp(rep->zhuangtai,"ÒÑ½è³ö")==0)
+					if(strcmp(rep->zhuangtai,"å·²å€Ÿå‡º")==0)
 					{
-						printf("\n-------------------¸ÃÊéÒÑ±»½è³ö£¡----------------------\n");
+						printf("\n-------------------è¯¥ä¹¦å·²è¢«å€Ÿå‡ºï¼----------------------\n");
 						Turn_menu2(str,di);
 					}
-					printf("ÇëÈ·ÈÏÊÇ·ñ½èÔÄ´ËÊé(Y/N):");
+					printf("è¯·ç¡®è®¤æ˜¯å¦å€Ÿé˜…æ­¤ä¹¦(Y/N):");
 					scanf("%c",&ch);
 					while(ch!='Y'&&ch!='y'&&ch!='N'&&ch!='n')
 					{
-						printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+						printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 						scanf("%c",&ch);
 						scanf("%c",&ch);
 					}	
 
 					if(ch=='Y'||ch=='y')
 					{
-						strcpy(rep->zhuangtai,"ÒÑ½è³ö");
+						strcpy(rep->zhuangtai,"å·²å€Ÿå‡º");
 						shu++;
 						rep->cishu++;
 						strcpy(rep->zhanghao1,str);
 						jilutime(di);
-						printf("------------------½èÔÄ³É¹¦!---------------------\n");
+						printf("------------------å€Ÿé˜…æˆåŠŸ!---------------------\n");
 						break;
 					}
 					if(ch=='N'||ch=='n')
 					{
-						printf("------------------ÍË³öÏµÍ³!---------------------\n");
+						printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 						Turn_menu2(str,di);
 						
 					}
@@ -1248,13 +1248,13 @@ void lent_book(char str[],int di)
 	rep=p;
 	if(flag==0)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡");	
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼");	
 	}	
 	
 }
 
 
-//¹é»¹Í¼Êé
+//å½’è¿˜å›¾ä¹¦
 void back_Book(char str[],int di)
 {
 	int n;
@@ -1264,29 +1264,29 @@ void back_Book(char str[],int di)
 	Books_style  *p=rep;
 	
 
-	printf("\n\t----------½èÔÄĞÅÏ¢ÈçÏÂ------------\n");
+	printf("\n\t----------å€Ÿé˜…ä¿¡æ¯å¦‚ä¸‹------------\n");
 	jieyue_Book(str,di);
 
 	printf("\n\n\t||==========================================||\n");
 	printf("\t||                                          ||\n");
-	printf("\t|| 1¡¢°´ÊéºÅ¹é»¹                            ||\n");
-	printf("\t|| 2¡¢°´ÊéÃû¹é»¹                            ||\n");
+	printf("\t|| 1ã€æŒ‰ä¹¦å·å½’è¿˜                            ||\n");
+	printf("\t|| 2ã€æŒ‰ä¹¦åå½’è¿˜                            ||\n");
 	printf("\t||                                          ||\n");
 	printf("\t||==========================================||\n");
 
 	
-	printf("\nÇëÊäÈëÄãµÄÑ¡Ôñ£¨1-2£©:");
+	printf("\nè¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼ˆ1-2ï¼‰:");
 	scanf("%d",&n);
 	while(n>2||n<1)
 	{	
-		printf("ÇëÖØĞÂÊäÈë(1-2):");
+		printf("è¯·é‡æ–°è¾“å…¥(1-2):");
 		scanf("%d",&n);
 	
 	}
 	
 	if(n==1)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª¹é»¹µÄÍ¼ÊéµÄÊéºÅ£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦å½’è¿˜çš„å›¾ä¹¦çš„ä¹¦å·ï¼š");
 		scanf("%s",num2);
 			
 			
@@ -1295,36 +1295,36 @@ void back_Book(char str[],int di)
 			if(strcmp(num2,p->num)==0)
 			{
 				flag=1;
-				printf("\n¸ÃÊéµÄÍ¼ÊéĞÅÏ¢£º\n");
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",p->num,p->name,p->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",p->zhuangtai);
-				if(strcpy(p->zhuangtai,"¿É½è")==0)
+				printf("\nè¯¥ä¹¦çš„å›¾ä¹¦ä¿¡æ¯ï¼š\n");
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",p->num,p->name,p->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",p->zhuangtai);
+				if(strcpy(p->zhuangtai,"å¯å€Ÿ")==0)
 				{
-					printf("\n-------------------¸ÃÊéÎ´±»½è³ö£¡----------------------\n");
+					printf("\n-------------------è¯¥ä¹¦æœªè¢«å€Ÿå‡ºï¼----------------------\n");
 					Turn_menu2(str,di);
 				}
-				printf("ÇëÈ·ÈÏÊÇ·ñ¹é»¹´ËÊé(Y/N):");
+				printf("è¯·ç¡®è®¤æ˜¯å¦å½’è¿˜æ­¤ä¹¦(Y/N):");
 				scanf("%c",&ch);
 				scanf("%c",&ch);
 				while(ch!='Y'&&ch!='y'&&ch!='N'&&ch!='n')
 				{
-					printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+					printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 					scanf("%c",&ch);
 					scanf("%c",&ch);
 				}	
 
 				if(ch=='Y'||ch=='y')
 				{
-					strcpy(p->zhuangtai,"¿É½è ");
+					strcpy(p->zhuangtai,"å¯å€Ÿ ");
 					shu1--;
 					strcpy(rep->zhanghao1,"   ");
 					
-					printf("------------------¹é»¹³É¹¦!---------------------\n");
+					printf("------------------å½’è¿˜æˆåŠŸ!---------------------\n");
 					break;
 				}
 				if(ch=='N'||ch=='n')
 				{
-					printf("------------------ÍË³öÏµÍ³!---------------------\n");			
+					printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");			
 				}
 				
 			}
@@ -1334,7 +1334,7 @@ void back_Book(char str[],int di)
 	p=rep;
 	if(n==2)
 	{
-		printf("ÇëÊäÈëÄãÏëÒª²éÑ¯µÄÍ¼ÊéµÄÊéÃû£º");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¦æŸ¥è¯¢çš„å›¾ä¹¦çš„ä¹¦åï¼š");
 		scanf("%s",name2);
 
 		while (p != NULL)
@@ -1342,46 +1342,46 @@ void back_Book(char str[],int di)
 			if(strcmp(name2,p->name)==0)
 			{
 				flag=1;
-				printf("Ñ§ºÅ£º%s\tĞÕÃû£º%s\t×÷Õß£º%s",p->num,p->name,p->author);
-				printf("\tÊé¼®×´Ì¬:%s\n",p->zhuangtai);
+				printf("å­¦å·ï¼š%s\tå§“åï¼š%s\tä½œè€…ï¼š%s",p->num,p->name,p->author);
+				printf("\tä¹¦ç±çŠ¶æ€:%s\n",p->zhuangtai);
 				
-				if(strcpy(p->zhuangtai,"¿É½è")==0)
+				if(strcpy(p->zhuangtai,"å¯å€Ÿ")==0)
 				{
-					printf("\n-------------------¸ÃÊéÎ´±»½è³ö£¡----------------------\n");
+					printf("\n-------------------è¯¥ä¹¦æœªè¢«å€Ÿå‡ºï¼----------------------\n");
 					Turn_menu2(str,di);
 				}
-				printf("ÇëÈ·ÈÏÊÇ²»ÊÇ´ËÊé£¡£¨Y/N£©£º");
+				printf("è¯·ç¡®è®¤æ˜¯ä¸æ˜¯æ­¤ä¹¦ï¼ï¼ˆY/Nï¼‰ï¼š");
 				scanf("%c",&gt);
 				scanf("%c",&gt);
 				
 				while(gt!='Y'&&gt!='y'&&gt!='N'&&gt!='n')
 				{
-					printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+					printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 					scanf("%c",&gt);
 					scanf("%c",&ch);
 				}	
 				if((gt=='Y'||gt=='y'))
 				{
-					printf("ÇëÈ·ÈÏÊÇ·ñ½è¹é»¹´ËÊé(Y/N):%c",&ch);
+					printf("è¯·ç¡®è®¤æ˜¯å¦å€Ÿå½’è¿˜æ­¤ä¹¦(Y/N):%c",&ch);
 					while(ch!='Y'&&ch!='y'&&ch!='N'&&ch!='n')
 					{
-						printf("ÇëÖØĞÂÊäÈë£¨Y/N£©");
+						printf("è¯·é‡æ–°è¾“å…¥ï¼ˆY/Nï¼‰");
 						scanf("%c",&ch);
 						scanf("%c",&ch);
 					}	
 
 					if(ch=='Y'||ch=='y')
 					{
-						strcpy(p->zhuangtai,"¿É½è ");
+						strcpy(p->zhuangtai,"å¯å€Ÿ ");
 						shu1--;
 						strcpy(rep->zhanghao1,"  ");
 						
-						printf("------------------¹é»¹³É¹¦!---------------------\n");
+						printf("------------------å½’è¿˜æˆåŠŸ!---------------------\n");
 						break;
 					}
 					if(ch=='N'||ch=='n')
 					{
-						printf("------------------ÍË³öÏµÍ³!---------------------\n");
+						printf("------------------é€€å‡ºç³»ç»Ÿ!---------------------\n");
 						Turn_menu2(str,di);
 						
 					}
@@ -1395,7 +1395,7 @@ void back_Book(char str[],int di)
 	p=rep;
 	if(flag==0)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡");	
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼");	
 	}	
 	
 }
@@ -1413,7 +1413,7 @@ void jieyue_Book(char string[],int n)
 		{	
 			if(strcmp(string,p->zhanghao1)==0)
 			{
-				printf("\n\n\tÊéºÅ\t\tÊéÃû\t\t\t×÷Õß\t\tÓâÆÚ½ğ¶î\n");
+				printf("\n\n\tä¹¦å·\t\tä¹¦å\t\t\tä½œè€…\t\té€¾æœŸé‡‘é¢\n");
 				p->yuqimoney=yuqifond_Book(n);
 				printf("\t%-8s\t%-20s\t%-12s\t%f\n",p->num,p->name,p->author,p->yuqimoney);
 				zongmon=zongmon+p->yuqimoney;
@@ -1422,7 +1422,7 @@ void jieyue_Book(char string[],int n)
 			p = p->next;
 		}
 	huiyuan[n].jieyueshu=zongs;
-	printf("\n¹²½è±¾Êı:%d\n",huiyuan[n].jieyueshu);
+	printf("\nå…±å€Ÿæœ¬æ•°:%d\n",huiyuan[n].jieyueshu);
 	huiyuan[n].date_jine=zongmon;
 }
 
@@ -1551,7 +1551,7 @@ void jilutime3()
   	 time_t t; 
   	 t=time(NULL); 
   	 local=localtime(&t);
-	 printf("\n±¾´Î²éÑ¯Ê±¼ä£º ");
+	 printf("\næœ¬æ¬¡æŸ¥è¯¢æ—¶é—´ï¼š ");
 	 printf ("%d-%d-%d  ", 1900+local->tm_year, 1+local->tm_mon,local->tm_mday);
 	 printf("%d:%d:%d\n",  local->tm_hour, local->tm_min, local->tm_sec);
 	
@@ -1568,45 +1568,45 @@ void xiugaimima(int n)
 	char mima1[12];
 
 		
-			printf("¾ÉÃÜÂë:");
+			printf("æ—§å¯†ç :");
 			scanf("%s",mima1);
 
 			while(strcmp(mima1,huiyuan[n].mima)!=0)
 			{
-				printf("ÇëÖØĞÂÊäÈëÃÜÂë£º\n");
+				printf("è¯·é‡æ–°è¾“å…¥å¯†ç ï¼š\n");
 				scanf("%s",mima1);
 				jishu++;
 				if(jishu==3)
 				{
-					printf("\n\n----------------ÃÜÂëÈı´ÎÊäÈë´íÎó!----------------------\n");
+					printf("\n\n----------------å¯†ç ä¸‰æ¬¡è¾“å…¥é”™è¯¯!----------------------\n");
 					Turn_menu();
 				}
 			}		
 						
-			printf("ĞÂÃÜÂë£º");
+			printf("æ–°å¯†ç ï¼š");
 			scanf("%s",huiyuan[n].mima);
-			printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+			printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 			scanf("%s",mima2);
 			while(strcmp(mima2,huiyuan[n].mima)!=0)
 			{
 				keep++;
-				printf("\nÁ½´ÎÃÜÂë²»Ò»Ñù!\n");
-				printf("ÔÙ´ÎÊäÈëÃÜÂë£º");
+				printf("\nä¸¤æ¬¡å¯†ç ä¸ä¸€æ ·!\n");
+				printf("å†æ¬¡è¾“å…¥å¯†ç ï¼š");
 				scanf("%s",mima2);
 				if(keep>3)
 				{
-					printf("ÒÑÈı´ÎÊäÈë´íÎó£¡×Ô¶¯ÍË³ö");
+					printf("å·²ä¸‰æ¬¡è¾“å…¥é”™è¯¯ï¼è‡ªåŠ¨é€€å‡º");
 					Turn_menu3();
 				}
 			}
-			printf("\n\n--------------ĞŞ¸Ä³É¹¦£¡--------------------\n\n");
+			printf("\n\n--------------ä¿®æ”¹æˆåŠŸï¼--------------------\n\n");
 			Turn_menu3();		
 }
 
 void xianshi()
 {
 	Books_style  *p=rep;	
-	printf("\n\n\tÊéºÅ\t\tÊéÃû\t\t\t×÷Õß\t\tÊé¼®×´Ì¬\n");
+	printf("\n\n\tä¹¦å·\t\tä¹¦å\t\t\tä½œè€…\t\tä¹¦ç±çŠ¶æ€\n");
 	while (p != NULL)
 		{	
 				printf("\t%-8s\t%-20s\t%-12s\t%-3s \n",p->num,p->name,p->author,p->zhuangtai);
